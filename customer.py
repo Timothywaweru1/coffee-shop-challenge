@@ -7,11 +7,11 @@ class Customer:
 
     @property
     def name(self):
-        return self.name
+        return self._name
     
     @name.setter
     def name(self,value):
-        if len(value) <= 15:
+        if len(value) <= 15 and isinstance(value,str):
             raise TypeError("Name must contain only 15 characters!")
         else:
-            return self.value
+            self._name = value
