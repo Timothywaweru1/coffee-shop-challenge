@@ -9,6 +9,6 @@ class Coffee:
     
     @property
     def name(self):
-        return self.name
+        return self._name
     
     
