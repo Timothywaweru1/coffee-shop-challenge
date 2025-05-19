@@ -20,7 +20,8 @@ class Customer:
             raise TypeError("Name is not valid")
     def orders(self):
         return [order for order in Order.all if order.customer is self]
+    
     def coffees(self):
-        return [order.coffee for order in Order]
+        return [order.coffee for order in self.orders()]
 
 customer = Customer("Timothy")

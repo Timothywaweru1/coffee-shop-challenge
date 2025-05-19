@@ -1,4 +1,4 @@
-
+from order import Order
 class Coffee:
     def __init__(self,name):
         if len(name) >= 3 and isinstance(name,str):
@@ -10,4 +10,9 @@ class Coffee:
     def name(self):
         return self._name
     
+    def orders(self):
+        return [order for order in Order.all if order.coffee is self]
+    
+    def customer(self):
+        return [order.customer for order in self.orders()]
     
