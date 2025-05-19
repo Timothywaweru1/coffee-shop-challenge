@@ -1,19 +1,15 @@
-from customer import Customer
-from coffee import Coffee
-# from dataclasses import dataclass
-# @dataclass(frozen=True)
+
 class Order:
+    all = []
     def __init__(self,customer,coffee,price):
-        self.customer = customer
-        self.coffee = coffee
+        self._customer = customer
+        self._coffee = coffee
         if  not isinstance(price,float):
             raise ValueError("Price must have 2 decimal places!")
         else:
             self._price = price
+        Order.all.append(self)
         
-        Order.customer_orders(self)
-
-    
     @property
     def price(self,price):
         if  not isinstance(price,float):
@@ -22,6 +18,14 @@ class Order:
             raise ValueError("Price does not exist!")
         else:
             return self._price
+    
+    @property
+    def customer(self):
+        return self._customer
+
+    @property
+    def coffee(self):
+        return self._coffee
     
 
 

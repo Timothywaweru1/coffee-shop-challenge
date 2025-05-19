@@ -1,5 +1,4 @@
-from dataclasses import dataclass
-@dataclass(frozen=True)
+
 class Coffee:
     def __init__(self,name):
         if len(name) >= 3 and isinstance(name,str):
