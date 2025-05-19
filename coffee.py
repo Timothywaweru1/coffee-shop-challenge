@@ -16,3 +16,12 @@ class Coffee:
     def customer(self):
         return [order.customer for order in self.orders()]
     
+    def average_price(self):
+        prices = [order.price for order in self.orders()]
+        if not prices:
+            return 0
+        else:
+            return sum(prices) / len(prices)
+
+
+    
